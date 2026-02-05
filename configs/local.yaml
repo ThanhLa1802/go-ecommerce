@@ -1,0 +1,9 @@
+server:
+  port: 8082
+databases:
+  user: admin
+  password: abc13579
+  dbName: shopDev
+security:
+  jwt:
+    key: abc123
