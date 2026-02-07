@@ -1,4 +1,4 @@
-package routers
+package initialize
 
 import (
 	"fmt"
@@ -30,7 +30,7 @@ func CC(c *gin.Context) {
 	fmt.Println("After --> CC\n")
 }
 
-func NewRouter() *gin.Engine {
+func InitRouter() *gin.Engine {
 	r := gin.Default()
 
 	// use middleware

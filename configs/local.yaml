@@ -1,9 +1,11 @@
 server:
   port: 8082
-databases:
-  user: admin
+mysql:
+  host: 127.0.0.1
+  port: 33306
+  username: root
   password: abc13579
-  dbName: shopDev
-security:
-  jwt:
-    key: abc123
+  dbname: shopdev
+  maxIdleConns: 10
+  maxOpenConns: 100
+  connMaxLifetime: 300
