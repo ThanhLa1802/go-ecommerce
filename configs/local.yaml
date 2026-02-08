@@ -2,10 +2,10 @@ server:
   port: 8082
 mysql:
   host: 127.0.0.1
-  port: 33306
+  port: 3307
   username: root
-  password: abc13579
-  dbname: shopdev
+  password: 123456
+  dbname: shopdevgo
   maxIdleConns: 10
   maxOpenConns: 100
   connMaxLifetime: 300
@@ -16,3 +16,8 @@ logger:
   maxBackups: 3
   maxAge:     28
   compress:   true
+redis:
+  host: 127.0.0.1
+  port: 6379
+  password:
+  database: 0

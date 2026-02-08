@@ -12,8 +12,8 @@ func Run() {
 	fmt.Println("Loading config MySQL", global.Config.Mysql.Username)
 	InitLogger()
 	global.Logger.Info("Config logger successfully!", zap.String("ok", "success"))
-	InitMySql()
-	// InitRedis()
+	InitMySQL()
+	InitRedis()
 
 	r := InitRouter()
 
