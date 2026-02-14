@@ -4,6 +4,12 @@ type Config struct {
 	Mysql  MySQLSetting  `mapstucture:"mysql"`
 	Logger LoggerSetting `mapstucture:"logger"`
 	Redis  RedisSetting  `mapstucture:"redis"`
+	Server ServerSetting `mapstucture:"server"`
+}
+
+type ServerSetting struct {
+	Port int    `mapstucture:"port"`
+	Mode string `mapstucture:"mode"`
 }
 
 type MySQLSetting struct {
