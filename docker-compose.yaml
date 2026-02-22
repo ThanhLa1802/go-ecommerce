@@ -1,0 +1,48 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: shopdevgo
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: 123456
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - backend
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - backend
+
+  app:
+    build: .
+    container_name: go_app
+    depends_on:
+      - mysql
+      - redis
+    ports:
+      - "8002:8002"
+    networks:
+      - backend
+
+volumes:
+  mysql_data:
+  redis_data:
+
+networks:
+  backend:
+    driver: bridge

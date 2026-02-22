@@ -1,6 +1,10 @@
-package manage
+package routers
 
-import "github.com/gin-gonic/gin"
+import (
+	"go-ecommerce-backend-api/internal/wire"
+
+	"github.com/gin-gonic/gin"
+)
 
 type UserRouter struct{}
 
@@ -12,14 +16,11 @@ func (pr *UserRouter) InitUserRouter(Router *gin.RouterGroup) {
 	// 	userRouterPublic.POST("/otp")
 	// }
 	//private router
-	userRouterPrivate := Router.Group("admin/user")
+	userController, _ := wire.InitUserRouterHandler()
+	userRouterPrivate := Router.Group("/user")
 
 	{
-		userRouterPrivate.POST("/active_user", func(c *gin.Context) {
-			c.JSON(200, gin.H{
-				"message": "active user ok",
-			})
-		})
+		userRouterPrivate.GET("/get_user_by_id", userController.GetUserById)
 	}
 
 }

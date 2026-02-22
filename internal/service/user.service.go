@@ -4,16 +4,20 @@ import (
 	"go-ecommerce-backend-api/internal/repo"
 )
 
-type UserService struct {
-	userRepo *repo.UserRepo
+type IUserService interface {
+	GetInfoUser() string
 }
 
-func NewUserService() *UserService {
-	return &UserService{
-		userRepo: repo.NewUserRepo(),
+type userService struct {
+	userRepo repo.IUserRepo
+}
+
+func NewUserService(userRepo repo.IUserRepo) IUserService {
+	return &userService{
+		userRepo: userRepo,
 	}
 }
 
-func (us *UserService) GetInfoUser() string {
+func (us *userService) GetInfoUser() string {
 	return us.userRepo.GetInfoUser()
 }
