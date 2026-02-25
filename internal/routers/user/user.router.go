@@ -23,7 +23,8 @@ func (pr *UserRouter) InitUserRouter(Router *gin.RouterGroup) {
 	//private router
 	userRouterPrivate := Router.Group("/user")
 	{
-		userRouterPrivate.GET("/get_user_by_id", userHandlerNonDependency.GetUserById)
+		userRouterPrivate.GET("/get_user_by_id", userHandlerNonDependency.GetUserByID)
+		userRouterPrivate.POST("/register", userHandlerNonDependency.RegisterUser)
 	}
 
 }

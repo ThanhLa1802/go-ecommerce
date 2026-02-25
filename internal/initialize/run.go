@@ -14,6 +14,7 @@ func Run() {
 	global.Logger.Info("Config logger successfully!", zap.String("ok", "success"))
 	InitMySQL()
 	InitRedis()
+	InitKafka()
 
 	r := InitRouter()
 
